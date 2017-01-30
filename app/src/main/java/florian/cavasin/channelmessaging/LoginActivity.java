@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Reponse obj = gson.fromJson(result, Reponse.class);
 
                 if (obj.getResponse().equals("Ok")) {
-                    Toast.makeText(getApplicationContext(), "Connecté", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Bonjour ", Toast.LENGTH_SHORT).show();
 
                     //Shared preferences
                     SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -65,12 +65,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Intent myIntent = new Intent(getApplicationContext(), ChannelListActivity.class);
                     startActivity(myIntent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Erreur de connexion", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Erreur d'identification, verifier votre identifiant et mot de passe", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         connexion.execute();
-        Toast.makeText(getApplicationContext(), "Connexion en cours...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Connexion en cours", Toast.LENGTH_SHORT).show();
 
     }
 }
