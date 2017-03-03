@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "florian.cavasin.channelmessaging"
-        minSdkVersion 13
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -24,4 +24,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
+    // Support lib for material design
+    compile 'com.android.support:design:25.1.0'
 }
