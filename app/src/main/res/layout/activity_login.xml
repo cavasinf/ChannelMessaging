@@ -41,19 +41,21 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp">
+                android:layout_margin="16dp"
+                app:theme="@style/TextLabel">
 
                 <EditText
                     android:id="@+id/editTextUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:inputType="textEmailAddress"
                     android:hint="pseudo"
-                    android:foregroundTint="#0032b13f"
-                    android:enabled="false"
+                    android:textColor="@color/white"
+                    android:enabled="true"
                     android:forceHasOverlappingRendering="true"
-                    android:foreground="#35adbf" />
+                    android:textColorHint="@color/white"
+                    android:textColorLink="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:height="120dp" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -76,8 +78,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:inputType="textEmailAddress"
-                    android:hint="login" />
+                    android:hint="login"
+                    android:height="120dp"
+                    android:textColorHighlight="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textColorLink="@color/white"
+                    android:textIsSelectable="false"
+                    android:singleLine="true"
+                    android:shadowColor="@color/white"
+                    android:selectAllOnFocus="true"
+                    android:inputType="textPassword" />
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
