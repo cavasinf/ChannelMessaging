@@ -53,15 +53,9 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
 
         TextView user = (TextView) convertView.findViewById(R.id.textViewUser);
         TextView date = (TextView) convertView.findViewById(R.id.textViewDate);
-        CircleImageView avatar = (CircleImageView) convertView.findViewById(R.id.imageViewAvatar);
         user.setText(message.getUsername().toString() + " : ");
         date.setText(message.getDate());
 
-        if(ChannelActivity.images.containsKey(message.getImageUrl())){
-            avatar.setImageBitmap(ChannelActivity.images.get(message.getImageUrl()));
-        }else{
-            new DownloadImageTask(avatar).execute(message.getImageUrl());
-        }
 
         if(message.getMessageImageUrl().equals("")){
             TextView text = (TextView) convertView.findViewById(R.id.textViewMessage);
@@ -71,8 +65,6 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
 
             if(ChannelActivity.images.containsKey(message.getMessageImageUrl())){
                 messageImage.setImageBitmap(ChannelActivity.images.get(message.getMessageImageUrl()));
-            }else{
-                new DownloadImageTask(messageImage).execute(message.getMessageImageUrl());
             }
         }
 
