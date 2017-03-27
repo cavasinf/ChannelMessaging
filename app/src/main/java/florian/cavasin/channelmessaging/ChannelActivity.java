@@ -1,6 +1,7 @@
 package florian.cavasin.channelmessaging;
 
-        import android.content.Context;
+
+import android.content.Context;
         import android.content.DialogInterface;
         import android.content.Intent;
         import android.content.SharedPreferences;
@@ -26,8 +27,6 @@ package florian.cavasin.channelmessaging;
 
         import com.google.gson.Gson;
 
-        import org.apache.http.NameValuePair;
-        import org.apache.http.message.BasicNameValuePair;
 
         import java.io.File;
         import java.io.FileInputStream;
@@ -188,43 +187,6 @@ public class ChannelActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICTURE_REQUEST_CODE && resultCode == RESULT_OK) {
-            File test = new File(Environment.getExternalStorageDirectory()+"/img.jpg");
-
-            try {
-                this.resizeFile(test,ChannelActivity.this.getApplicationContext());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            SharedPreferences settings = getSharedPreferences(LoginActivity.PREFS_NAME, 0);
-            String accesstoken = settings.getString("accesstoken","");
-
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("accesstoken",accesstoken));
-            params.add(new BasicNameValuePair("channelid",getIntent().getStringExtra("channelid")));
-
-
-            UploadFileToServer upload = new UploadFileToServer(ChannelActivity.this, test.getAbsolutePath(), params, new UploadFileToServer.OnUploadFileListener() {
-                @Override
-                public void onResponse(String result) {
-                    System.out.println("onResponse : " + result);
-                }
-
-                @Override
-                public void onFailed(IOException error) {
-                    System.out.println("onFailed : " + error);
-                }
-            });
-
-            upload.execute();
-        }
     }
 
 

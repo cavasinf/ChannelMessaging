@@ -63,8 +63,7 @@ public class ChannelListActivity extends AppCompatActivity{
         btnFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FriendsActivity.class);
-                startActivity(intent);
+                Toast.makeText(ChannelListActivity.this, "Amis en cours de DEV", Toast.LENGTH_SHORT).show();
             }
         });
 
